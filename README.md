@@ -7,9 +7,9 @@
 </h4>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/emersonrafaels/pyspark?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/emersonrafaels/sparkhub?color=%2304D361">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/emersonrafaels/pyspark">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/emersonrafaels/sparkhub">
 
   	
   <a href="https://www.linkedin.com/in/emerson-rafael/">
@@ -18,12 +18,12 @@
 	
   
   <a href="https://github.com/emersonrafaels/pyspark/commits/main">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/emersonrafaels/pyspark">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/emersonrafaels/sparkhub">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/emersonrafaels/pyspark/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/emersonrafaels/pyspark?style=social">
+   <a href="https://github.com/emersonrafaels/sparkhub/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/emersonrafaels/sparkhub?style=social">
   </a>
 </p>
 
