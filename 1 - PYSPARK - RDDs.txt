@@ -1,0 +1,91 @@
+# OPEN pyspark
+pyspark
+
+# SparkContext - SC Variable
+sc
+
+# CREATE RDD
+numeros = spark.parallelize([1,2,3,4,5,6,7,8,9,10])
+
+# SOME ACTIONS
+numeros.take(5)
+numeros.top(5)
+
+# GET ALL ELEMENTS IN RDD VARIABLE
+numeros.collect()
+
+# ARITHMETIC OPERATIONS
+numeros.count()
+numeros.mean()
+numeros.sum()
+numeros.max()
+numeros.min()
+numeros.stdev()
+
+# TRANSFORMATIONS
+# FILTER
+filtro = numeros.filter(lambda filtro: filtro > 2)
+filtro.collect()
+
+# SAMPLE (TRUE: WITH REPLACEMENT, FALSE: WITHOUT REPLACEMENT)
+amostra = numeros.sample(True,0.5,1)
+amostra.collect()
+
+# MAP: APPLY A FUNCTION IN EACH ELEMENT IN RDD
+mapa = numeros.map(lambda mapa: mapa * 2)
+mapa.collect()
+
+# CREATE OTHER RDD
+numeros2 = sc.parallelize([6,7,8,9,10])
+
+# UNION OPERATOR: MERGING THE TWO RDDS (ADDING THE ELEMENTS)
+uniao = numeros.union(numeros2)
+uniao.collect()
+
+# INTERSECTION: ELEMENTS THAT EXISTS IN BOTH RDDS
+interseccao = numeros.intersection(numeros2)
+interseccao.collect()
+
+# SUBTRACT: FILTER ELEMENTS OF RDD NUMEROS THAT NOT IN NUMEROS2
+subtrai = numeros.subtract(numeros2)
+subtrai.collect()
+
+# CARTESIAN PRODUCT: GENERATES ALL POSSIBLE PAIRS OF ELEMENTS FROM TWO SETS
+cartesiano = numeros.cartesian(numeros2)
+cartesiano.collect()
+
+# ACTION: COUNT BY VALUE - COUNT THE OCCURRENCES OF EACH UNIQUE ELEMENT IN THE RDD, RETURNS A PAIR THAT CONTAINS: (ELEMENT, COUNT).
+cartesiano.countByValue()
+
+# CREATING A RDD WITH NAME: 'PURCHASE', WITH TWO DATA: 'CUSTOMER ID, PURCHASE AMOUNT')
+rdd_purchase = sc.parallelize([(1,200),(2,300),(3,120),(4,250),(5,78)])
+
+# GET KEYS
+rdd_purchase_keys = rdd_purchase.keys()
+rdd_purchase_keys.collect()
+
+# GET VALUES
+rdd_purchase_values = rdd_purchase.values()
+rdd_purchase_values.collect()
+
+# COUNT ELEMENTS BY KEY
+rdd_purchase.countByKey()
+
+# APPLY FUNCTION MAP IN VALUES
+rdd_purchase_sum = rdd_purchase.mapValues(lambda sum_amount: sum_amount + 1)
+rdd_purchase_sum.collect()
+
+# GROUPBY BY KEY
+rdd_purchase_group = rdd_purchase.groupByKey().mapValues(list)
+rdd_purchase_group.collect()
+
+# CREATING A RDD WITH NAME: 'DEBTS', WITH TWO DATA: 'CUSTOMER ID, DEBIT AMOUNT')
+rdd_debts = sc.parallelize([(1,20),(2,300)])
+
+# INNER JOIN BETWEEN RDD PURCHASE AND RDD DEBTS
+result_join = rdd_purchase.join(rdd_debts)
+result_join.collect()
+
+# REMOVES AND SHOWS ONLY KEYS THAT HAVE PURCHASES AND NO DEBTS
+keys_without_debts = rdd_purchase.subtractByKey(rdd_debts)
+keys_without_debts.collect()
